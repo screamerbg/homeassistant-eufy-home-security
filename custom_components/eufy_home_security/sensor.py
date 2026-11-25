@@ -662,7 +662,7 @@ class EufySettingSensor(EufySettingEntity, SensorEntity):
             return numeric_value(value)
         if isinstance(value, bool):
             return str(value).lower()
-        if json_value(value) is not None:
+        if isinstance(value, dict) or json_value(value) is not None:
             return None
         if isinstance(value, str):
             return capped_state(value)

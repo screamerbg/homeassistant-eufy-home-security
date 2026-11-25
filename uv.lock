@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.14.2"
 resolution-markers = [
     "python_full_version >= '3.15'",
@@ -936,7 +936,7 @@ wheels = [
 [[package]]
 name = "eufy-home-security"
 version = "0.4.17"
-source = { registry = "https://pypi.org/simple" }
+source = { editable = "../python-eufy_home_security" }
 dependencies = [
     { name = "aiohttp" },
     { name = "cryptography" },
@@ -944,9 +944,28 @@ dependencies = [
     { name = "protobuf" },
     { name = "tzdata" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ae/04/4fbfeece16bf65b6411da57da9cac637b4bc95f1ab05741ab98bb9780e22/eufy_home_security-0.4.17.tar.gz", hash = "sha256:dd8fd375fb11231c3958b65b404ae9170e929ad512a262f12a352023312f08d1", size = 1157537, upload-time = "2026-11-21T12:46:55.73Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/14/e1/9f819faba944f90026012f6730e4d2694013a4e69dc0cdf48ff7e1ad38ce/eufy_home_security-0.4.17-py3-none-any.whl", hash = "sha256:cd7426d5603066b0f5d67e9a05c14c8e9a107eb5a9ad6d11d6e2cabb990c1626", size = 1359816, upload-time = "2026-11-21T12:46:54.15Z" },
+
+[package.metadata]
+requires-dist = [
+    { name = "aiohttp", specifier = ">=3.11" },
+    { name = "cryptography", specifier = ">=44" },
+    { name = "firebase-messaging", specifier = ">=0.4" },
+    { name = "protobuf", specifier = ">=5" },
+    { name = "tzdata", specifier = ">=2025.2" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "aioresponses", specifier = ">=0.7.8" },
+    { name = "hypothesis", specifier = ">=6.130" },
+    { name = "mypy", specifier = ">=1.17" },
+    { name = "prek", specifier = ">=0.2" },
+    { name = "pytest", specifier = ">=8.4" },
+    { name = "pytest-asyncio", specifier = ">=1.2" },
+    { name = "pytest-cov", specifier = ">=6" },
+    { name = "pytest-timeout", specifier = ">=2.3" },
+    { name = "pytest-xdist", specifier = ">=3.8" },
+    { name = "ruff", specifier = ">=0.13" },
 ]
 
 [[package]]
@@ -1277,7 +1296,7 @@ dev = [
 [package.metadata.requires-dev]
 dev = [
     { name = "av", specifier = "==19.0.0" },
-    { name = "eufy-home-security", specifier = "==0.4.17" },
+    { name = "eufy-home-security", editable = "../python-eufy_home_security" },
     { name = "mypy" },
     { name = "pytest-homeassistant", specifier = "==2026.11.0" },
     { name = "pytest-timeout" },

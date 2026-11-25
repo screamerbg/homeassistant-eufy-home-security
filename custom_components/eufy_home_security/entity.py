@@ -38,7 +38,7 @@ from .settings import SettingEntitySpec, member_in_use, setting_platform
 if TYPE_CHECKING:
     from .runtime import EufyConfigEntry
 
-type SettingValue = bool | int | float | str
+type SettingValue = bool | int | float | str | dict[str, Any]
 """A setting's public value (``Setting.validate``)."""
 
 
